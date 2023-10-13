@@ -1,0 +1,28 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<html>
+<head>
+    <title>Editar Género</title>
+</head>
+<body>
+    <h1>Editar Género</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        <label for="genero">Selecciona un género:</label>
+        <select name="genero" id="genero">
+            <option value="{{ genero.nombre }}" selected>{{ genero.nombre }}</option>
+            {% for genero in generos %}
+                <option value="{{ genero.nombre }}">{{ genero.nombre }}</option>
+            {% endfor %}
+        </select>
+        {{ form.as_p }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <a href="{% url 'lista_generos' %}">Volver a la lista de géneros</a>
+</body>
+</html>
+{% endblock %}

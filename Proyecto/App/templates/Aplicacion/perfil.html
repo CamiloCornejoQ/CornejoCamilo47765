@@ -1,0 +1,32 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1>Bienvenido</h1>
+            <p class="lead mb-0">Esta es la informacion de tu perfil:</p>
+            {% if user.username %}
+                <p><strong>Nombre de usuario:</strong> {{user.username}}</p>
+            {% endif %}
+            {% if user.first_name %}
+                <p><strong>Nombre:</strong> {{user.first_name}}</p>
+            {% endif %}
+            {% if user.last_name %}
+                <p><strong>Apellido:</strong> {{user.last_name}}</p>
+            {% endif %}
+            {% if user.email %}
+                <p><strong>Email:</strong> {{user.email}}</p>
+            {% endif %}
+            <p><strong>Cuenta de staff:</strong> {{user.is_staff}}</p>
+                <hr>
+            <a href="{% url 'editar_perfil' %}">Editar Perfil</a>
+            <a href="{% url 'cambiar_contrasena' %}">Cambiar Contraseña</a>
+            <a href="{% url 'eliminar_perfil' %}">Eliminar Cuenta</a>
+            <a href="{% url 'cerrar_sesion' %}">Cerrar Sesión</a>
+        </div>
+    </div>
+</header>
+{% endblock %}

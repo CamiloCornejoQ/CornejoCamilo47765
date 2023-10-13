@@ -1,0 +1,11 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<h1>Género no encontrado</h1>
+<p>El género que estás buscando no se encuentra en la base de datos.</p>
+<a href="{% url 'lista_generos' %}">Volver a la lista de géneros</a>
+</body>
+</html>
+{% endblock %}

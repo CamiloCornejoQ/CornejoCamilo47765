@@ -1,0 +1,42 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+</style>
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1>Lista de Libros</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Género</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for libro in libros %}
+            <tr>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.autor }}</td>
+                <td>{{ libro.genero }}</td>
+                <td>{{ libro.descripcion }}</td>
+                <td>
+                    <a href="{% url 'crear_libro' %}">Crear Libro</a>
+                    <a href="{% url 'lista_libros' %}">Lista Libros</a>
+                    <a href="{% url 'editar_libro' libro.titulo %}">Editar</a>
+                    <a href="{%url 'eliminar_libro'  libro.titulo%}">Eliminar</a>
+                    <a href="{% url 'Inicio' %}">Inicio</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
+{% endblock %}

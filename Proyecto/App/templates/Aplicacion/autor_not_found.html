@@ -1,0 +1,11 @@
+{% extends "Aplicacion/padre.html" %}
+
+{% load static %}
+
+{% block contenidoquecambiar %}
+<h1>Autor no encontrado</h1>
+<p>El autor que estás buscando no se encuentra en la base de datos.</p>
+<a href="{% url 'lista_autores' %}">Volver a la lista de autores</a>
+</body>
+</html>
+{% endblock %}
